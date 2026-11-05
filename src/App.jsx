@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GastoForm } from './components/GastoForm';
 import { GastoLista } from './components/GastoLista';
 import { GastoTotal } from './components/GastoTotal';
@@ -6,13 +6,27 @@ import { GastoFiltro } from './components/GastoFiltro';
 import './App.css';
 
 function App() {
-  const [gastos, setGastos] = useState([
-    { id: 1, descricao: 'Almoço no Restaurante', valor: 45.90, categoria: 'Alimentação' },
-    { id: 2, descricao: 'Passagem de Metrô', valor: 5.00, categoria: 'Transporte' },
-    { id: 3, descricao: 'Cinema com amigos', valor: 35.00, categoria: 'Lazer' },
-  ]);
+  const [gastos, setGastos] = useState(() => {
+    const gastosSalvos = localStorage.getItem('controle_gastos_dados');
+    if (gastosSalvos) {
+      try {
+        return JSON.parse(gastosSalvos);
+      } catch (e) {
+        console.error('Erro ao ler gastos do localStorage', e);
+      }
+    }
+    return [
+      { id: 1, descricao: 'Almoço no Restaurante', valor: 45.90, categoria: 'Alimentação' },
+      { id: 2, descricao: 'Passagem de Metrô', valor: 5.00, categoria: 'Transporte' },
+      { id: 3, descricao: 'Cinema com amigos', valor: 35.00, categoria: 'Lazer' },
+    ];
+  });
 
   const [categoriaFiltro, setCategoriaFiltro] = useState('Todas');
+
+  useEffect(() => {
+    localStorage.setItem('controle_gastos_dados', JSON.stringify(gastos));
+  }, [gastos]);
 
   const handleAdicionarGasto = (novoGasto) => {
     const gastoComId = {
