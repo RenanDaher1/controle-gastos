@@ -4,9 +4,9 @@ Nome: Renan Daher Franceschelli
 
 | Categoria      | Antes | Depois |
 |----------------|-------|--------|
-| Acessibilidade |       |        |
-| Boas práticas  |       |        |
-| SEO            |       |        |
+| Acessibilidade |  93   |        |
+| Boas práticas  |  100  |        |
+| SEO            |  82   |        |
 
 ## O que foi corrigido (1 ou 2 linhas)
 
