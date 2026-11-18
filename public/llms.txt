@@ -1,0 +1,4 @@
+# LLMs.txt
+
+# Controle de Gastos
+Aplicativo web para gerenciar finanças e controle de gastos pessoais de forma simples, rápida e eficiente.

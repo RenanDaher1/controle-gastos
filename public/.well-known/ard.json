@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/spec/v1/schema.json",
+  "name": "Controle de Gastos",
+  "description": "Aplicativo web para gerenciar finanças e controle de gastos pessoais.",
+  "resources": [
+    {
+      "url": "http://localhost:5173/",
+      "description": "Página principal do aplicativo de controle de gastos."
+    }
+  ]
+}
